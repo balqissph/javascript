@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jam Real-Time</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        text-align: center;
+        margin-top: 50px;
+      }
+      h1 {
+        color: #333;
+      }
+      #jam {
+        font-size: 3em;
+        color: #009688;
+      }
+      #tanggal {
+        font-size: 1.5em;
+        color: #777;
+      }
+      .clock-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="clock-container">
+      <h1>Jam Real-Time</h1>
+      <p id="jam"></p>
+      <p id="tanggal"></p>
+    </div>
+    <script lang="Javascript">
+      function tampilkanWaktu() {
+        var waktuSekarang = new Date();
+        var jam = waktuSekarang.getHours();
+        var menit = waktuSekarang.getMinutes();
+        var detik = waktuSekarang.getSeconds();
+
+        jam = (jam < 10 ? "0" : "") + jam;
+        menit = (menit < 10 ? "0" : "") + menit;
+        detik = (detik < 10 ? "0" : "") + detik;
+
+        var namaBulan = [
+          "Januari",
+          "Februari",
+          "Maret",
+          "April",
+          "Mei",
+          "Juni",
+          "Juli",
+          "Agustus",
+          "September",
+          "Oktober",
+          "November",
+          "Desember",
+        ];
+
+        var tanggal = waktuSekarang.getDate();
+        var bulan = namaBulan[waktuSekarang.getMonth()];
+        var tahun = waktuSekarang.getFullYear();
+
+        document.getElementById("jam").innerHTML =
+          jam + ":" + menit + ":" + detik;
+        document.getElementById("tanggal").innerHTML =
+          tanggal + " " + bulan + " " + tahun;
+
+        setTimeout(tampilkanWaktu, 1000);
+      }
+
+      window.onload = function () {
+        tampilkanWaktu();
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#clickMeBtn").click(function () {
+          $("#demo").text("Tuh hilang!"); // Mengubah teks elemen dengan id 'demo'
+          $("#demo").css("color", "red"); // Mengubah warna teks elemen dengan id 'demo'
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button id="clickMeBtn">Click Me!</button>
+    <p id="demo">Ini adalah teks yang bisa hilang.</p>
+  </body>
+</html>
